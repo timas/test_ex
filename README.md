@@ -44,13 +44,13 @@ pip install -r requirements.txt
 ```
 
 
-### Usage
+### Usage for mac
 Under activated virtualenv run:
 ```sh
 $ python test_1.py
 $ python test_1.py
 ```
-Or simple pytest for both:
+Or pytest for both:
 ```sh
 $ python -m pytest .
 ```
