@@ -1,6 +1,7 @@
 import os
 import unittest
 
+import easyprocess
 import psycopg2
 from sshtunnel import SSHTunnelForwarder
 from sshtunnel import BaseSSHTunnelForwarderError
@@ -45,8 +46,12 @@ class Test1(unittest.TestCase):
 
     def setUp(self):
         """Prepare test."""
-        self.display = Display(visible=0, size=(1366, 768))
-        self.display.start()
+        # skip use pyvirtualdisplay for macos
+        try:
+            self.display = Display(visible=0, size=(1366, 768))
+            self.display.start()
+        except (easyprocess.EasyProcessCheckInstalledError, ):
+            pass
 
         chrome_driver_path = os.path.join(os.path.dirname(
             os.path.abspath(__file__)), '..', 'chromedriver')
@@ -56,7 +61,8 @@ class Test1(unittest.TestCase):
         """Finish test."""
         self.driver.close()
         self.driver.quit()
-        self.display.stop()
+        if hasattr(self, 'display'):
+            self.display.stop()
 
     def test_database(self):
         """Test data parse from remoted database."""

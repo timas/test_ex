@@ -24,7 +24,24 @@ pip install PyVirtualDisplay
 
 
 ### Install for mac
-
+Create virtual environment:
+```sh
+virtualenv -p python3.6 test_ex
+cd test_ex
+. bin/activate
+```
+Download according version for chrome driver (check version)
+```sh
+wget https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_mac64.zip
+unzip chromedriver_mac64.zip
+rm chromedriver_mac64.zip
+```
+Clone project
+```sh
+git clone https://github.com/timas/test_ex.git src
+cd src
+pip install -r requirements.txt
+```
 
 
 ### Usage
