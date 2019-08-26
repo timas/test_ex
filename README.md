@@ -52,5 +52,5 @@ $ python test_1.py
 ```
 Or simple pytest for both:
 ```sh
-$ pytest
+$ python -m pytest .
 ```
