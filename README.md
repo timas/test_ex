@@ -4,7 +4,7 @@ Install some system-wide depencies (if not installed):
 sudo apt-get install virtualenv
 sudo apt-get install python-pip
 sudo apt-get install libpq-dev
-sudo apt-get install xvfb
+sudo apt-get install xvfb xserver-xephyr vnc4server
 ```
 Create virtual environment:
 ```sh
@@ -17,6 +17,12 @@ Download according version for chrome driver (check version chrome installed)
 wget https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_linux64.zip
 unzip chromedriver_linux64.zip
 rm chromedriver_linux64.zip
+```
+Download and install chrome
+```sh
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt-get install -f
 ```
 ### Install for mac
 Create virtual environment:
